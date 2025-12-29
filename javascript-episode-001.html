@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#01 Variáveis - JavaScript - DiretoAoPonto&Vírgula</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/javascript-episode-001.css">
+    <link rel="shortcut icon" href="favicons/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <a href="home.html">
+                    <img src="images/logo-image-logo-only-removebg-preview.png" alt="Logo">
+                </a>
+            </div>
+            <div class="header-actions">
+                <a href="javascript.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar ao curso
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="breadcrumb">
+        <a href="home.html">Início</a>
+        <span>›</span>
+        <a href="javascript.html">JavaScript</a>
+        <span>›</span>
+        <a href="javascript-course.html#fundamentos">Fundamentos</a>
+        <span>›</span>
+        <span class="current">#01 Variáveis</span>
+    </div>
+
+    <div class="container">
+        <!-- Video Section -->
+        <div class="video-section">
+            <!-- Video Player -->
+            <div class="video-player">
+                <div class="video-placeholder" onclick="alert('Aqui seria o embed do YouTube/Vimeo')">
+                    <div class="play-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <p>Clique para reproduzir</p>
+                </div>
+            </div>
+
+            <!-- Video Info -->
+            <div class="video-info">
+                <span class="episode-badge">EP #01</span>
+                <h1 class="video-title">Variáveis (var, let, const)</h1>
+
+                <div class="video-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>8 minutos</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-eye"></i>
+                        <span>12.5k visualizações</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>15 Dez 2024</span>
+                    </div>
+                </div>
+
+                <p class="video-description">
+                    Neste episódio você vai entender de uma vez por todas as diferenças entre var, let e const no
+                    JavaScript.
+                    Vamos ver quando usar cada uma, os problemas do var, e por que let e const são a escolha moderna.
+                    Direto ao ponto, sem enrolação!
+                </p>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(event, 'code')">
+                        <i class="fas fa-code"></i> Código
+                    </button>
+                    <button class="tab" onclick="switchTab(event, 'notes')">
+                        <i class="fas fa-list"></i> Pontos-chave
+                    </button>
+                </div>
+
+                <!-- Code Tab -->
+                <div id="code" class="tab-content active">
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">Exemplo 1: var vs let vs const</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <pre><code><span class="comment">// VAR - escopo de função, pode ser redeclarada</span>
+<span class="keyword">var</span> nome = <span class="string">"João"</span>;
+<span class="keyword">var</span> nome = <span class="string">"Maria"</span>; <span class="comment">// ✅ Funciona (mas não deveria!)</span>
+
+<span class="comment">// LET - escopo de bloco, não pode ser redeclarada</span>
+<span class="keyword">let</span> idade = <span class="string">25</span>;
+<span class="keyword">let</span> idade = <span class="string">30</span>; <span class="comment">// ❌ Erro!</span>
+idade = <span class="string">30</span>; <span class="comment">// ✅ Reatribuição funciona</span>
+
+<span class="comment">// CONST - escopo de bloco, não pode ser reatribuída</span>
+<span class="keyword">const</span> PI = <span class="string">3.14159</span>;
+PI = <span class="string">3.14</span>; <span class="comment">// ❌ Erro!</span></code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">Exemplo 2: Escopo de bloco</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <pre><code><span class="keyword">if</span> (<span class="keyword">true</span>) {
+  <span class="keyword">var</span> x = <span class="string">10</span>;
+  <span class="keyword">let</span> y = <span class="string">20</span>;
+  <span class="keyword">const</span> z = <span class="string">30</span>;
+}
+
+<span class="function">console</span>.<span class="function">log</span>(x); <span class="comment">// ✅ 10 (var vaza do bloco)</span>
+<span class="function">console</span>.<span class="function">log</span>(y); <span class="comment">// ❌ Erro (let tem escopo de bloco)</span>
+<span class="function">console</span>.<span class="function">log</span>(z); <span class="comment">// ❌ Erro (const tem escopo de bloco)</span></code></pre>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-title">Exemplo 3: Quando usar cada uma</span>
+                            <button class="copy-btn" onclick="copyCode(this)">
+                                <i class="fas fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <pre><code><span class="comment">// Use CONST por padrão (não vai mudar)</span>
+<span class="keyword">const</span> API_URL = <span class="string">"https://api.exemplo.com"</span>;
+<span class="keyword">const</span> usuarios = [<span class="string">"Ana"</span>, <span class="string">"Bruno"</span>, <span class="string">"Carlos"</span>];
+
+<span class="comment">// Use LET quando o valor vai mudar</span>
+<span class="keyword">let</span> contador = <span class="string">0</span>;
+<span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="string">0</span>; i < <span class="string">10</span>; i++) {
+  contador++;
+}
+
+<span class="comment">// EVITE VAR (código legado apenas)</span>
+<span class="keyword">var</span> antigoJeito = <span class="string">"não use mais"</span>;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Notes Tab -->
+                <div id="notes" class="tab-content">
+                    <ul class="key-points">
+                        <li>
+                            <strong>var</strong> tem escopo de função e pode causar bugs inesperados. Evite usar em
+                            código novo.
+                        </li>
+                        <li>
+                            <strong>let</strong> tem escopo de bloco e permite reatribuição. Use quando o valor vai
+                            mudar.
+                        </li>
+                        <li>
+                            <strong>const</strong> tem escopo de bloco e não permite reatribuição. Use como padrão para
+                            valores que não mudam.
+                        </li>
+                        <li>
+                            <strong>Regra de ouro:</strong> Sempre use const por padrão. Só mude para let se realmente
+                            precisar reatribuir.
+                        </li>
+                        <li>
+                            <strong>Objetos e arrays:</strong> Com const, você pode modificar o conteúdo, mas não pode
+                            reatribuir a variável.
+                        </li>
+                        <li>
+                            <strong>Hoisting:</strong> var é "elevada" (hoisted) para o topo do escopo, let e const não.
+                            Isso evita bugs.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Progress -->
+            <div class="sidebar-section progress-card">
+                <div class="progress-ring">
+                    <div class="progress-circle">
+                        <div class="progress-inner">25%</div>
+                    </div>
+                </div>
+                <p class="progress-text">1 de 4 vídeos completos</p>
+                <button class="btn-complete">
+                    <i class="fas fa-check"></i> Marcar como concluído
+                </button>
+            </div>
+
+            <!-- Next Episodes -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-list"></i>
+                    Próximos episódios
+                </h3>
+                <div class="nav-episodes">
+                    <div class="nav-episode active">
+                        <span class="nav-episode-number">#01</span>
+                        <span class="nav-episode-title">Variáveis</span>
+                        <span class="nav-episode-duration">8min</span>
+                    </div>
+                    <a href="#" class="nav-episode">
+                        <span class="nav-episode-number">#02</span>
+                        <span class="nav-episode-title">Tipos de dados</span>
+                        <span class="nav-episode-duration">10min</span>
+                    </a>
+                    <a href="#" class="nav-episode">
+                        <span class="nav-episode-number">#03</span>
+                        <span class="nav-episode-title">Operadores</span>
+                        <span class="nav-episode-duration">7min</span>
+                    </a>
+                    <a href="#" class="nav-episode">
+                        <span class="nav-episode-number">#04</span>
+                        <span class="nav-episode-title">Condicionais</span>
+                        <span class="nav-episode-duration">9min</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-download"></i>
+                    Recursos
+                </h3>
+                <div class="resource-list">
+                    <a href="#" class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <span>Código-fonte</span>
+                    </a>
+                    <a href="#" class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <span>Slides do episódio</span>
+                    </a>
+                    <a href="#" class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <span>Documentação MDN</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <script src="js/javascript-episode-001.js"></script>
+</body>
+</html>
