@@ -332,6 +332,10 @@ main {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+    main {
+        padding-top: 100px;
+    }
+    
     header {
         /* flex-direction: column; */
         padding: 10px;
@@ -436,3 +440,4 @@ main {
     }
 
 }
+
