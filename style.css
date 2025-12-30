@@ -458,14 +458,15 @@ main {
     }
 
     .javascript-container h2 {
-        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        font-size: 1.8em;
     }
 
     .language-container .language-h2 {
-        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        font-size: 1.8em;
     }
 
 }
+
 
 
 
