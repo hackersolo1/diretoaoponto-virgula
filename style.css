@@ -301,6 +301,35 @@ main {
     margin-bottom: 25px;
 }
 
+.faq-container {
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.questions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.questions-container .question{
+    width: 80%;
+    background: #002851;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #334b64;
+    margin-top: 20px;
+}
+
+.questions-container h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
 /* Tablet styles */
 @media (max-width: 1024px) {
     header .nav-container nav ul {
@@ -437,6 +466,7 @@ main {
     }
 
 }
+
 
 
 
