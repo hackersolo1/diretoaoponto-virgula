@@ -333,7 +333,7 @@ main {
 /* Mobile styles */
 @media (max-width: 768px) {
     main {
-        padding-top: 150px;
+        padding-top: 130px;
     }
     
     header {
@@ -362,9 +362,6 @@ main {
         justify-content: center;
     }
 
-    main {
-        padding-top: 00px;
-    }
 
     .hero {
         padding: 20px;
@@ -440,5 +437,6 @@ main {
     }
 
 }
+
 
 
